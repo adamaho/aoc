@@ -1,5 +1,5 @@
 fn main() {
-    let input = std::fs::read_to_string("src/bin/day1-input.txt").unwrap();
+    let input = std::fs::read_to_string("src/bin/day1.txt").unwrap();
 
     let mut calories: Vec<i32> = input
         .split("\n\n")
