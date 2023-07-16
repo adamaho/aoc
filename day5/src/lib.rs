@@ -106,7 +106,7 @@ fn parse_moves(sections: &Vec<&str>) -> Vec<Move> {
     moves
 }
 
-pub fn get_top_crates(input: String, mode: MoveMode) -> String {
+fn get_top_crates(input: String, mode: MoveMode) -> String {
     let sections = input.split("\n\n").collect::<Vec<&str>>();
     let mut stacks = parse_stacks(&sections);
 
@@ -123,6 +123,14 @@ pub fn get_top_crates(input: String, mode: MoveMode) -> String {
     top_crates
 }
 
+pub fn part_1(input: String) -> String {
+    get_top_crates(input, MoveMode::OneByOne)
+}
+
+pub fn part_2(input: String) -> String {
+    get_top_crates(input, MoveMode::All)
+}
+
 #[cfg(test)]
 mod day_5_tests {
     use super::*;
@@ -131,28 +139,28 @@ mod day_5_tests {
     #[test]
     fn part_1_example() {
         let content = parse_input("example.txt").unwrap();
-        let result = get_top_crates(content, MoveMode::OneByOne);
+        let result = part_1(content);
         assert_eq!(result.as_str(), "CMZ");
     }
 
     #[test]
     fn part_1_input() {
         let content = parse_input("input.txt").unwrap();
-        let result = get_top_crates(content, MoveMode::OneByOne);
+        let result = part_1(content);
         assert_eq!(result.as_str(), "LJSVLTWQM");
     }
 
     #[test]
     fn part_2_example() {
         let content = parse_input("example.txt").unwrap();
-        let result = get_top_crates(content, MoveMode::All);
+        let result = part_2(content);
         assert_eq!(result.as_str(), "MCD");
     }
 
     #[test]
     fn part_2_input() {
         let content = parse_input("input.txt").unwrap();
-        let result = get_top_crates(content, MoveMode::All);
+        let result = part_2(content);
         assert_eq!(result.as_str(), "BRQWDBBJM");
     }
 }
