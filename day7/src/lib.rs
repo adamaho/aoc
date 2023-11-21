@@ -78,7 +78,7 @@ mod tests {
 
     #[test]
     fn puzzle_example() {
-        let content = parse_input("example_part1.txt").unwrap();
+        let content = parse_input("example.txt").unwrap();
         let result = puzzle(content);
         assert_eq!(result, (95437, 24933642));
     }
